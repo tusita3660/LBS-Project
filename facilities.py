@@ -4,9 +4,7 @@
 # In[4]:
 
 
-import networkx as nx
-import random as r
-import osmnx as ox
+import basic_imports
 
 
 # In[9]:
