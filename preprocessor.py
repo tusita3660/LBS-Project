@@ -4,7 +4,7 @@
 # In[8]:
 
 
-import basic_imports
+import basic_imports as bi
 from facilities import facilities
 
 
@@ -12,7 +12,7 @@ from facilities import facilities
 
 
 def preprocess(north, south, east, west):
-    H = ox.graph_from_bbox(north, south, east, west, network_type='drive')
+    H = bi.ox.graph_from_bbox(north, south, east, west, network_type='drive')
     list = []
     for i in H.edges:
         if 'facilitynum' not in  H.edges[i[0],i[1],i[2]]:
@@ -21,15 +21,15 @@ def preprocess(north, south, east, west):
                 k=(int)(length)
             else:
                 k=22
-            n=r.randint(0,k)
+            n=bi.r.randint(0,k)
             H.edges[i[0],i[1],i[2]]['facilitynum']=n
 
-            facilities_dist=r.sample(range(0,(int)(length*100)),n)
+            facilities_dist=bi.r.sample(range(0,(int)(length*100)),n)
             facilities_dist.sort()
             facilities1=[x/100 for x in facilities_dist]
             H.edges[i[0],i[1],i[2]]['facilitydist']=facilities1
             for j in facilities1:
-                list.append(facilities(r.randint(0,500),j))
+                list.append(facilities(bi.r.randint(0,500),j))
 
 
             if [i[1],i[0],i[2]] in H.edges:
@@ -38,10 +38,11 @@ def preprocess(north, south, east, west):
                 facilities2.sort()
                 H.edges[i[1],i[0],i[2]]['facilitdist']=facilities2
                 for k in facilities2:
-                    list.append(facilities(r.randint(0,500),k))       
+                    list.append(facilities(bi.r.randint(0,500),k))       
 
             H.edges[i[0],i[1],i[2]]['length']=(int)(length*100)/100
         #H.edges(data=True,keys=True)
+    H=bi.nx.convert_node_labels_to_integers (H)
     for obj in list: 
         print( obj.R, obj.d, sep =' , ' ) 
 
@@ -49,7 +50,6 @@ def preprocess(north, south, east, west):
     
 # calling the function for check    
 preprocess(41.9483,41.8766,-87.5734,-87.8130)
-
 
 # In[ ]:
 
