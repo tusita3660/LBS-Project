@@ -1,3 +1,4 @@
+import random
 class Facility:  
     def __init__(self, length, R = 0, d = 0, max_rad = 200):
         self.R = R if R != 0 else random.randint(1, max_rad)
