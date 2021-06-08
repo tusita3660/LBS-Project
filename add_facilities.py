@@ -1,4 +1,4 @@
-from basic_imports import *
+from imports import *
 from constants import *
 
 def add_facilities(north, south, east, west, pf = 0.5, max_facilities = 15):
