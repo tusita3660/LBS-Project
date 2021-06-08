@@ -1,5 +1,6 @@
 from imports import *
 from constants import *
+from Facility import *
 
 def add_facilities(north, south, east, west, pf = 0.5, max_facilities = 15):
     orig = ox.graph_from_bbox(north, south, east, west, network_type='drive')
