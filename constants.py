@@ -4,10 +4,10 @@
 # In[ ]:
 
 
-north=41.8983
-south=41.8766
+north=41.8752
+south=41.7766
 east=-87.5734
-west=-87.6230
+west=-87.6730
 
 pf = 0.5
 max_facilities = 15
