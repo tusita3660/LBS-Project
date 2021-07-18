@@ -67,7 +67,7 @@ class Advertisement:
                 for n1 in self.G.adj[w][z]:
                     RTD=self.G.edges[w,z,n1]['length']+self.G.edges[u,v,n]['length']+self.paths[v][w]
                     if u in self.paths[z].keys():
-                        RTD+=self.paths[z][v]
+                        RTD+=self.paths[z][u]
                         if RTD>Lbound and RTD<=Ubound:
                             del self.G.edges[w,z,n1]['relevant'][(u,v,n)]
                             self.G.edges[w,z,n1]['relevantR'].update({(u,v,n):RTD})
@@ -95,7 +95,7 @@ class Advertisement:
                 for n1 in self.G.adj[w][z]:
                     RTD=self.G.edges[w,z,n1]['length']+self.G.edges[u,v,n]['length']+self.paths[v][w]
                     if u in self.paths[z].keys():
-                        RTD+=self.paths[z][v]
+                        RTD+=self.paths[z][u]
                         if RTD<=Re: 
                             del self.G.edges[w,z,n1]['relevantR'][(u,v,n)]  
     def preprocessR(self,u,v,n):
@@ -106,7 +106,7 @@ class Advertisement:
                 for n1 in self.G.adj[w][z]:
                     RTD=self.G.edges[w,z,n1]['length']+self.G.edges[u,v,n]['length']+self.paths[v][w]
                     if u in self.paths[z].keys():
-                        RTD+=self.paths[z][v]
+                        RTD+=self.paths[z][u]
                         if RTD<=Re and (u,v,n) not in self.G.edges[w,z,n1]['relevantR'].keys():
                             self.G.edges[w,z,n1]['relevantR'].update({(u,v,n):RTD})
                             
@@ -119,7 +119,7 @@ class Advertisement:
                 for n1 in self.G.adj[w][z]:
                     RTD=self.G.edges[w,z,n1]['length']+self.G.edges[u,v,n]['length']+self.paths[v][w]
                     if u in self.paths[z].keys():
-                        RTD+=self.paths[z][v]
+                        RTD+=self.paths[z][u]
                         if RTD<=Re and (u,v,n) not in self.G.edges[w,z,n1]['relevant'].keys():
                             self.G.edges[w,z,n1]['relevant'].update({(u,v,n):RTD})
                             del self.G.edges[w,z,n1]['relevantR'][(u,v,n)]
