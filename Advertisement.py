@@ -135,7 +135,7 @@ class Advertisement:
             for f in self.G.adj[i[0]][i[1]][i[2]]['Facilities']:
                 if d>f.R:
                     break
-                print(f.R,d)       
+                #print(f.R,d)       
         
             
     def queryR(self,u,v,n,Range):
@@ -155,7 +155,8 @@ class Advertisement:
         facility.sort(key=lambda x: x[1])
         for i,d in facility:                                          
             for i in self.G.adj[i[0]][i[1]][i[2]]['Facilities']:            
-                print(d) 
+                continue
+                #print(d) 
          
          
             
